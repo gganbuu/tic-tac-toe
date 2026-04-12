@@ -16,23 +16,30 @@ Game object - Factory Function
 
 - checkWin
     - check if there are three spots in a row that are identical
+
         - if so, award win to corresponding player 
     - check if there all spots are filled
         -   if so, declare tie, start new game (?) 
+
+Gameboard object - Factory Function
+- stores an empty array of length 9 with each element representing a square on the gameboard:
+
+- addMove(x/o, position)
+    - adds move to position if isMoveAllowed() = true
+
 
 - isMoveAllowed()
     - check if position/key has a value.
         - if so, false
         = if not, true
 
-Gameboard object - Factory Function
-- stores an empty array of length 9  with eac representing the gameboard:
+- reset()
+    - reset the gameboard
 
-
-- addMove(x/o, position)
-    - adds move to position
-
+- playturn(player1, board) 
+    - check if th
 
 Player object - Factory Function
     - Score
     - Name
+    - sign
