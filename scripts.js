@@ -20,7 +20,7 @@ function ticTacToe() {
     const playRound = () => {
         const board = (() => {
             const gameBoard = [
-                "_","X","X", // 0, 1, 2
+                "_","_","_", // 0, 1, 2
                 "_","_","_", // 3, 4, 5
                 "_","_","_" // 6, 7, 8
             ]
@@ -168,8 +168,5 @@ function ticTacToe() {
 // ticTacToe()
 
 
+const mainContainer = document.querySelector(".main-container")
 
-
-// "_","_","_", // 0, 1, 2
-// "_","_","_", // 3, 4, 5
-// "_","_","_", // 6, 7, 8

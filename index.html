@@ -8,8 +8,33 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="main-container"></div>
-    <div class="heading"></div>
-    <div class="gameboard-container"></div>
+    <div class="heading-container"><h1>gganbu's tic-tac-toe game</h1></div>
+    <div class="main-container">
+        <div class="scoreboard-container">
+            <div class="player1-score-container">
+                <!-- <h2>Player 1</h2> -->
+                <div id="player1-name">You</div>
+                <div id="player1-score">1</div>
+            </div>
+            <div class="hyphen-container">VS</div>
+            <div class="player2-score-container">
+                <!-- <h2>Player 2</h2> -->
+                <div id="player2-name">Villain</div>
+                <div id="player2-score">1</div>
+            </div>
+        </div>
+        <div class="gameboard-container">
+            <div class="cell-0" data-cell="0"></div>
+            <div class="cell-1" data-cell="1"></div>
+            <div class="cell-2" data-cell="2"></div>
+            <div class="cell-3" data-cell="3"></div>
+            <div class="cell-4" data-cell="4"></div>
+            <div class="cell-5" data-cell="5"></div>
+            <div class="cell-6" data-cell="6"></div>
+            <div class="cell-7" data-cell="7"></div>
+            <div class="cell-8" data-cell="7"></div>
+        </div>
+        <label class="settings-button"></label>
+    </div>
 </body>
 </html>

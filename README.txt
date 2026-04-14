@@ -57,9 +57,10 @@ Things to Do
             - player1-name
             - player1-score
 
-        
-        
     - Build the gameboard: Write a function that will render the contents of the gameboard array to the webpage
         - grid container (3x3)
         - squares
+
+    - settingsbutton
+        - change scores
     
