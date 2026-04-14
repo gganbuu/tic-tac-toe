@@ -4,20 +4,16 @@ Game object - Factory Function
     - Intialises 2 players; assigns them as "x" or "o"
 
 - endGame
-    - declare winner, clear variables,provide option to restart
+    - declare winner, clear variables, provide option to restart
 
-- matchWin
-    - check match win -> player gets three "o"/"x"s in a row
-        - if match win, increment player score by 1
     
-- gameWin
+- matchWin
     - check if game win -> player score > 3
     - endGame()
 
-- checkWin
+- checkOutcome
     - check if there are three spots in a row that are identical
-
-        - if so, award win to corresponding player 
+        - if so, award return winning symbol
     - check if there all spots are filled
         -   if so, declare tie, start new game (?) 
 
@@ -43,3 +39,27 @@ Player object - Factory Function
     - Score
     - Name
     - sign
+
+
+Things to Do
+1. Object to handle display and DOM logic
+    - Add heading-container -> gganbu's TicTacToe
+        - centre-align
+
+    - Add scoreboard-container (grid)
+        - player1-score-container
+            - player1-name
+            - player1-score
+
+        - hyphen
+
+        - player2-score-container
+            - player1-name
+            - player1-score
+
+        
+        
+    - Build the gameboard: Write a function that will render the contents of the gameboard array to the webpage
+        - grid container (3x3)
+        - squares
+    

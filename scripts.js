@@ -16,13 +16,13 @@ function ticTacToe() {
             resetScore
         }
     }
-    // initial game setup -------------------------------------------------
-    const playGame = () => {
+    // round setup -------------------------------------------------
+    const playRound = () => {
         const board = (() => {
             const gameBoard = [
-                "_","_","_", // 0, 1, 2
+                "_","X","X", // 0, 1, 2
                 "_","_","_", // 3, 4, 5
-                "_","_","_", // 6, 7, 8
+                "_","_","_" // 6, 7, 8
             ]
 
             const addMove = (sign, position) => {
@@ -34,13 +34,13 @@ function ticTacToe() {
             }
 
             const isMoveAllowed = (position) => {
-                return gameBoard[position] ==  "_";
+                return gameBoard[position] == "_" && position >= 0 && position < 9 && position != "";
             }
 
             const display = () => {
                 console.log(gameBoard.slice(0, 3) + "\n" +
                             gameBoard.slice(3, 6) + "\n" +
-                            gameBoard.slice(6, 9) + "\n" )
+                            gameBoard.slice(6, 9))
             }
 
             const reset = () => {
@@ -58,39 +58,37 @@ function ticTacToe() {
                 reset
             }
         })();
-        const player1 = createPlayer("player1", "X")
-        const player2 = createPlayer("player2", "O")
-        let outcome = "unfinished";
-
-        while (outcome == "unfinished") {
-            board.display()
-            playTurn(player1, board)
-    
-            outcome = checkOutcome(board.gameBoard)
-
-            board.display()
-            playTurn(player2, board)
-
-            outcome = checkOutcome(board.gameBoard)
-        }
-
-        // board.display()
-        // playTurn(player1, board)
-        // console.log(checkOutcome(board.gameBoard))
-        // board.display()
-        //board.display()
         
+        let currentPlayer = player1;
+        let roundOutcome = "unfinished";
+
+
+        while (roundOutcome == "unfinished") {
+            board.display()
+            playTurn(currentPlayer, board)
+            roundOutcome = checkRoundOutcome(board.gameBoard)
+            currentPlayer = (currentPlayer === player1) ? player2 : player1; 
+        }
+        board.display()
+
+        return roundOutcome
     }
     
     const playTurn = (player, board) => {
-        const position = prompt(`It is ${player.name}'s turn. \nPlease enter a position (0-9)`)
-        if (board.addMove(player.sign, position)) {
-            return "Success"
-        } else {return "Fail"}
+        // change code 
+        // add while condition, prompt player to enter a position
+        let addMoveSuccess = false;
+        let position = prompt(`It is ${player.name}'s turn. \nPlease enter a position (0-9)`);
+        addMoveSuccess = board.addMove(player.sign, position);
+
+        while (addMoveSuccess == false) {
+            position = prompt(`@@@@@ INVALID MOVE! @@@@ \nIt is ${player.name}'s turn. \nPlease enter a position (0-9)`);
+            addMoveSuccess = board.addMove(player.sign, position);
+        }
+
     }
 
-
-    const checkOutcome = (board) => {
+    const checkRoundOutcome = (board) => {
         let signs = ["X", "O"];
         for (let sign of signs) {
             for (let i = 0; i < 9; i+=3) {
@@ -125,56 +123,51 @@ function ticTacToe() {
         return "tie"
     }
 
+    const handleScoring = (roundOutcome, player1, player2) => {    
+        switch (roundOutcome) {
+            case player1.sign:
+                console.log(`${player1.name} (${player1.sign})  wins!`)
+                player1.giveScore()
+                break
+            case player2.sign:
+                console.log(`${player2.name} (${player2.sign}) wins!`)
+                player2.giveScore()
+                break
+            default:
+                break
+        }
+    }
 
-    const matchWin = () => {}
+    const getScores = (player1, player2) => {
+        console.log(`${player1.name}: ${player1.getScore()} \n${player2.name}: ${player2.getScore()}`)
+    }
 
-    const gameWin = () => {}
-
-    const endGame = () => {}
+    const endGame = (player1, player2) => {
+        if (player1.getScore() == 3) {return player1.name}
+        else if (player2.getScore() == 3) {return player2.name}
+        else {return false}
+    }
     
 
-    playGame()
+
+    const player1 = createPlayer("player1", "X");
+    const player2 = createPlayer("player2", "O");
+    let roundOutcome;
     
+    do {
+        console.log("New Round!")
+        roundOutcome = playRound()
+        handleScoring(roundOutcome, player1, player2)
+        getScores(player1, player2)
+    } while (endGame(player1, player2) == false)
+    
+    console.log(`${endGame(player1,player2)} wins!`)
+
 }
 
-ticTacToe()
+// ticTacToe()
 
 
-
-// gameboard factory function --------------------------------
-// - created but removed to make an IIFE
-
-// function createGameBoard() {
-//     const gameBoard = [
-//         "_","_","_", // 0, 1, 2
-//         "_","_","_", // 3, 4, 5
-//         "_","_","_", // 6, 7, 8
-//     ]
-
-//     const addMove = (sign, position) => {
-//         gameBoard[position] = sign
-//     }
-//     const display = () => {
-//         console.log(gameBoard.slice(0, 3) + "\n" +
-//                     gameBoard.slice(3, 6) + "\n" +
-//                     gameBoard.slice(6, 9) + "\n" )
-//     }
-
-//     const reset = () => {
-//         const gameBoard = [
-//             "_","_","_", // 0, 1, 2
-//             "_","_","_", // 3, 4, 5
-//             "_","_","_", // 6, 7, 8
-//         ]
-//     }
-
-//     return {
-//         gameBoard, 
-//         addMove, 
-//         display,
-//         reset
-//     }
-// }
 
 
 // "_","_","_", // 0, 1, 2
