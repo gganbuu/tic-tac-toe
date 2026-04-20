@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="scripts.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="heading-container"><h1>gganbu's tic-tac-toe game</h1></div>
+    <div class="main-container">
+        <div class="scoreboard-container">
+            <div class="player1-score-container">
+                <!-- <h2>Player 1</h2> -->
+                <div id="player1-name">Player1</div>
+                <div id="player1-score">0</div>
+            </div>
+            <div class="hyphen-container">VS</div>
+            <div class="player2-score-container">
+                <!-- <h2>Player 2</h2> -->
+                <div id="player2-name">Player2</div>
+                <div id="player2-score">0</div>
+            </div>
+        </div>
+        <div class="gameboard-container">
+            <div class="cell" data-cell="0"></div>
+            <div class="cell" data-cell="1"></div>
+            <div class="cell" data-cell="2"></div>
+            <div class="cell" data-cell="3"></div>
+            <div class="cell" data-cell="4"></div>
+            <div class="cell" data-cell="5"></div>
+            <div class="cell" data-cell="6"></div>
+            <div class="cell" data-cell="7"></div>
+            <div class="cell" data-cell="8"></div>
+        </div>
+
+        <div class="modal">
+            <div class="start-game-modal">
+                <!-- <i class="fa-solid fa-xmark close"></i> -->
+                <h3>Start game!</h3>
+                <div> Welcome to gganbu's tic-tac-toe! Please enter your player names and symbols.</div>
+                <form class="player-form">
+                    <label>Player 1
+                        <input type="text"
+                                id="player1-name-input"
+                                name="name"
+                                placeholder="a fancy name...">
+                    </label>
+                
+                    <label>Player 2
+                    <input type="text"
+                            id="player2-name-input"
+                            name="name"
+                            placeholder="a fancy name...">
+                    </label>
+                    
+                </form>
+                <p>Note: Player 1 (X) will go first.</p>
+                <div class="name-warning">
+                    Please enter a names for Player 1 and Player 2
+                </div>
+                <button type="button" class="modal-button start-game">Start Game</button>
+            </div>
+            <div class="round-end-modal"> 
+                <h3></h3>
+                <div></div>
+                <button class="modal-button continue">Continue</button>
+            </div>
+            <div class="game-end-modal">
+                <h3>Game End!</h3>
+                <div> You has won the GAME! the score is 1 - 1</div>
+                <div class="game-end-button-container">
+                    <button class="modal-button play-again">Play again?</button>
+                    <button class="modal-button back-to-menu">Back to Menu</button>
+                </div>
+            </div>
+            <div class="settings-modal">
+                <i class="fa-solid fa-xmark close"></i>
+                <h3>Settings</h3>
+                <div class="game-end-button-container">
+                    <button class="modal-button back-to-menu">Restart Game</button>
+                </div>
+            </div>
+        </div>
+        <i class="fa-solid fa-gear settings-button"></i>
+    </div>
+</body>
+</html>

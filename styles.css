@@ -1,0 +1,267 @@
+/* css reset */
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margins */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Remove list styles */
+ul, ol {
+  list-style: none;
+  padding: 0;
+}
+
+/* Make images easier to work with */
+img, picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove default link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Inherit fonts for inputs */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* Buttons look clickable */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* restyled defaults */
+h3 {
+  font-size: 20px;
+}
+
+input[type="text"] {
+  padding: 5px;
+  width: 150px;
+}
+
+/* heading container */
+.heading-container {
+   background-color: lightgrey;
+   text-align: center;
+   padding-bottom: 20px;
+}
+
+/* main container */
+.main-container {
+    height: 100vh;
+    width: 100%;
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* scoreboard + containers + text */
+.scoreboard-container {
+    display: grid;
+    grid-template: 1fr / repeat(3, 1fr);
+    gap: 200px;
+    padding-bottom: 20px;
+}
+
+
+.hyphen-container {
+    text-align: center;
+    margin: auto;
+}
+
+.player1-score-container, .player2-score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* gameboard container */
+.gameboard-container {
+    display: grid;
+    grid: repeat(3, 250px) / repeat(3, 250px);
+}
+
+.gameboard-container > * {
+    border: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+}
+
+.gameboard-container > *:hover {
+    background-color: darkgray ;
+}
+
+
+.cell {
+  border: 4px solid black;
+}
+
+/* Top row */
+.cell:nth-child(-n+3) {
+  border-top: none;
+}
+
+/* Bottom row */
+.cell:nth-child(n+7) {
+  border-bottom: none;
+}
+
+/* Left column */
+.cell:nth-child(3n+1) {
+  border-left: none;
+}
+
+/* Right column */
+.cell:nth-child(3n) {
+  border-right: none;
+}
+
+/* modal */
+.modal {
+  display: block; /* block by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal > * {
+  background-color: #fefefe;
+  margin: auto;
+  top: 20%;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 15px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  /* align-items: center;
+  justify-content: center; */
+  gap: 15px;
+  box-sizing: border-box;
+}
+
+
+
+/* .modal > * > h3 {
+  position: absolute;
+  top: 20px;
+} */
+
+/* start game modal */
+.start-game-modal {
+  display: flex;
+  align-items: center;
+  width: 600px;
+  height: 320px;
+}
+
+.player-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+}
+
+.name-warning {
+  visibility: hidden;
+  color: red;
+  height: 20px;
+}
+
+.name-warning.show {
+  visibility: visible;
+}
+
+
+
+/* round-end modal  */
+.round-end-modal {
+  display: flex; /*change to flex*/
+  align-items: center;
+  width: 400px;
+  height: 160px;
+}
+
+
+.game-end-modal { 
+  display: flex; /*change to flex*/
+  align-items: center;
+  width: 400px;
+  height: 160px;
+
+}
+
+.game-end-button-container {
+  display: flex;
+  gap: 20px;
+}
+
+
+/* settings modal */
+.settings-modal {
+  display: flex;
+  align-items: center;
+  width: 400px;
+  height: 130px;
+}
+
+/* buttons */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* modal button */
+.modal-button {
+  background-color: rgb(43, 73, 204);
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.hidden {
+  display: none;
+}
