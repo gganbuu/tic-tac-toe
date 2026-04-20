@@ -310,7 +310,7 @@ const handleRound = (outcome) => {
         roundText = `There are no winners this round. The score is ${player1.getScore()} - ${player2.getScore()}`
     }
     //CHANGE TO 5
-    if (player1.getScore() == 1 || player2.getScore() == 1) {
+    if (player1.getScore() == 3 || player2.getScore() == 3) {
         handleEndGame(outcome)
         return
     }
